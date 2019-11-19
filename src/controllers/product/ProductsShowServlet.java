@@ -1,4 +1,4 @@
-package controllers.toppage;
+package controllers.product;
 
 import java.io.IOException;
 
@@ -9,17 +9,18 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import models.Product;
 /**
- * Servlet implementation class TopPageIndexServlet
+ * Servlet implementation class ProductsShowServlet
  */
-@WebServlet("/index.html")
-public class TopPageIndexServlet extends HttpServlet {
+@WebServlet("/products/show")
+public class ProductsShowServlet extends HttpServlet {
     private static final long serialVersionUID = 1L;
 
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public TopPageIndexServlet() {
+    public ProductsShowServlet() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -28,14 +29,10 @@ public class TopPageIndexServlet extends HttpServlet {
      * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
      */
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        if(request.getSession().getAttribute("flush") != null) {
-            request.setAttribute("flush", request.getSession().getAttribute("flush"));
-            request.getSession().removeAttribute("flush");
-        }
+        //おまじないとしてインスタンスを生成
+        request.setAttribute("product", new Product());
 
-        RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/views/topPage/index.jsp");
+        RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/views/products/show.jsp");
         rd.forward(request, response);
-
     }
-
 }

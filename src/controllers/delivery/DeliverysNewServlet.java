@@ -1,6 +1,7 @@
-package controllers.toppage;
+package controllers.delivery;
 
 import java.io.IOException;
+import java.sql.Date;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -9,17 +10,19 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import models.Delivery;
+
 /**
- * Servlet implementation class TopPageIndexServlet
+ * Servlet implementation class DeliveryNewServlet
  */
-@WebServlet("/index.html")
-public class TopPageIndexServlet extends HttpServlet {
+@WebServlet("/deliverys/new")
+public class DeliverysNewServlet extends HttpServlet {
     private static final long serialVersionUID = 1L;
 
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public TopPageIndexServlet() {
+    public DeliverysNewServlet() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -28,14 +31,14 @@ public class TopPageIndexServlet extends HttpServlet {
      * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
      */
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        if(request.getSession().getAttribute("flush") != null) {
-            request.setAttribute("flush", request.getSession().getAttribute("flush"));
-            request.getSession().removeAttribute("flush");
-        }
+        request.setAttribute("_token", request.getSession().getId());
 
-        RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/views/topPage/index.jsp");
+        Delivery d = new Delivery();
+        d.setDelivery_date(new Date(System.currentTimeMillis()));
+        request.setAttribute("delivery", d);
+
+        RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/views/deliverys/new.jsp");
         rd.forward(request, response);
-
     }
 
 }

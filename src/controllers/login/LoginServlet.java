@@ -62,7 +62,7 @@ public class LoginServlet extends HttpServlet {
         if(code != null && !code.equals("") && plain_pass != null && !plain_pass.equals("")) {
             EntityManager em = DBUtil.createEntityManager();
 
-            String password = EncryptUtil.getPasswordEncrypt(
+            String password = EncryptUtil.getPasswordEncrypt(     //暗号化
                     plain_pass,
                     (String)this.getServletContext().getAttribute("salt")
                     );
