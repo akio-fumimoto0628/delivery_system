@@ -20,8 +20,8 @@
                 <c:forEach var="delivery" items="${deliverys}" varStatus="status">
                     <tr class="row${status.count % 2}">
                         <td class="delivery_name"><c:out value="${delivery.employee.name}" /></td>
-                        <td class="delivery_date"><fmt:formatDate value='${delivery.report_date}' pattern='yyyy-MM-dd' /></td>
-                        <td class="delivery_title">${delivery.title}</td>
+                        <td class="delivery_date"><fmt:formatDate value='${delivery.delivery_date}' pattern='yyyy-MM-dd' /></td>
+                        <td class="delivery_money"><c:out value="${delivery.money}" /></td>
                         <td class="delivery_action"><a href="<c:url value='/deliverys/show?id=${delivery.id}' />">詳細を見る</a></td>
                     </tr>
                 </c:forEach>

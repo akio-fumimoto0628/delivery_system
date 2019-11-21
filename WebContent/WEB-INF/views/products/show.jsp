@@ -17,9 +17,9 @@
              <td>
                 <select name="product_name"><option value="${product.product_name}" /></select>
              </td>
+             <td><c:out value="${product.product_name}" /></td>
              <td><c:out value="${product.amount_money}" /></td>
-             <td><c:out value="${product.amount_money}" /></td>
-             <td><c:out value="${product.amount_money}" /></td>
+             <td></td>
          </tr>
     </tbody>
 </table>

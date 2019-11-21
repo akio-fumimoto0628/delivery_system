@@ -3,4 +3,4 @@
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <c:import url="/WEB-INF/views/layout/app.jsp">
 <c:param name="content">
-<h2>商品編集</h2>
+<h2>登録商品</h2>

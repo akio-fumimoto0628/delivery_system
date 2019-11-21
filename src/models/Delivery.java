@@ -44,7 +44,7 @@ public class Delivery {
     private String content;
 
 
-    @Column(name = "erase", nullable = false)
+    @Column(name = "erase", nullable = true)
     private String erase;
 
     @Column(name = "money", nullable = false)

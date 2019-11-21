@@ -9,6 +9,6 @@
         </c:if>
         <h2>配達システムへようこそ</h2>
          <p><a href="<c:url value='/products/show' />">配達状況</a></p>
-         <p><a href="<c:url value='/products/registration' />">商品登録</a></p>
+         <p><a href="<c:url value='/products/new' />">商品登録</a></p>
     </c:param>
 </c:import>
