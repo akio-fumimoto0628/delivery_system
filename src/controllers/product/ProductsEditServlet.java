@@ -34,15 +34,18 @@ public class ProductsEditServlet extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         EntityManager em = DBUtil.createEntityManager();
 
-        // 該当のIを１件のみでデータベースから取得
+        // 該当のIDを１件のみでデータベースから取得
         Product p = em.find(Product.class, Integer.parseInt(request.getParameter("id")));
 
 
         em.close();
 
-        // 商品名と金額をリクエストスコープに登録
+        // 登録情報とセッションIDをリクエストスコープに登録
         request.setAttribute("products_name", p);
-        request.setAttribute("amountmoney", p);
+        request.setAttribute("_token", request.getSession().getId());
+
+        // メッセージIDをセッションスコープに登録
+        request.getSession().setAttribute("product_id", p.getId());
 
         RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/views/products/edit.jsp");
         rd.forward(request, response);
