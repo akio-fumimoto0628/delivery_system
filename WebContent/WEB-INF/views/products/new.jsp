@@ -2,7 +2,7 @@
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <c:import url="/WEB-INF/views/layout/app.jsp">
     <c:param name="content">
-        <h2>商品登録ページ</h2>
+        <h2>id : ${product.id}商品登録ページ</h2>
 
         <form method="POST" action="${pageContext.request.contextPath}/products/creteServlet">
             <c:import url="_form.jsp" />

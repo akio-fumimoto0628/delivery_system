@@ -8,7 +8,6 @@
             </div>
         </c:if>
         <h2>配達システムへようこそ</h2>
-         <p><a href="<c:url value='/products/show' />">配達状況</a></p>
-         <p><a href="<c:url value='/products/new' />">商品登録</a></p>
+         <p><a href="<c:url value='/products/new' />">配達を始める</a></p>
     </c:param>
 </c:import>

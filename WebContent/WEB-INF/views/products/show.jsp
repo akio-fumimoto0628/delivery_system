@@ -2,26 +2,31 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <c:import url="/WEB-INF/views/layout/app.jsp">
-<c:param name="content">
-<h2>配達状況</h2>
+  <c:param name="content">
+      <c:choose>
+          <c:when test="${product != null}">
+    <h2>配達状況</h2>
 
 <table>
     <tbody>
          <tr>
              <th>配達商品</th>
-             <th>商品金額</th>
-             <th>個数</th>
-             <th>小計</th>
+             <td><c:out value="${product.product_name}" /></td>
          </tr>
          <tr>
-             <td>
-                <select name="product_name"><option value="${product.product_name}" /></select>
-             </td>
-             <td><c:out value="${product.product_name}" /></td>
+             <th>商品金額</th>
              <td><c:out value="${product.amount_money}" /></td>
-             <td></td>
          </tr>
-    </tbody>
-</table>
+         <tr>
+             <th>チェック</th>
+              <td><input type="radio" name="trigger" value="kannryou">完了</td>
+         </tr>
+     </tbody>
+  </table>
+</c:when>
+</c:choose>
+         <p><a href="${pageContext.request.contextPath}/products/index">一覧に戻る</a></p>
+        <p><a href="${pageContext.request.contextPath}/products/edit?id=${message.id}">このメッセージを編集する</a></p>
+
 </c:param>
 </c:import>

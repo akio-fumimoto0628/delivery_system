@@ -6,7 +6,7 @@
         <ul>
             <c:forEach var="product" items="${products}">
                 <li>
-                    <a href="<c:url value='/productrs/show?id' />/>=${product.id}">
+                    <a href="${pageContext.request.contextPath}/products/show?id=${product.id}">
                         <c:out value="${product.id}" />
                     </a>
                     ：<c:out value="${product.product_name}"></c:out> &gt; <c:out value="${product.amount_money}" />
