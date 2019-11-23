@@ -5,7 +5,7 @@
   <c:param name="content">
       <c:choose>
           <c:when test="${product != null}">
-    <h2>配達状況</h2>
+    <h2>id : ${product.id} 配達状況</h2>
 
 <table>
     <tbody>
@@ -26,7 +26,7 @@
 </c:when>
 </c:choose>
          <p><a href="${pageContext.request.contextPath}/products/index">一覧に戻る</a></p>
-        <p><a href="${pageContext.request.contextPath}/products/edit?id=${message.id}">このメッセージを編集する</a></p>
+        <p><a href="${pageContext.request.contextPath}/products/edit?id=${product.id}">このメッセージを編集する</a></p>
 
 </c:param>
 </c:import>

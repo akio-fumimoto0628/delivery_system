@@ -41,7 +41,7 @@ public class ProductsEditServlet extends HttpServlet {
         em.close();
 
         // 登録情報とセッションIDをリクエストスコープに登録
-        request.setAttribute("products_name", p);
+        request.setAttribute("product", p);
         request.setAttribute("_token", request.getSession().getId());
 
         // メッセージIDをセッションスコープに登録
