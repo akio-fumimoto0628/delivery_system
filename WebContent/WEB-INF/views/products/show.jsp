@@ -17,16 +17,14 @@
              <th>商品金額</th>
              <td><c:out value="${product.amount_money}" /></td>
          </tr>
-         <tr>
-             <th>チェック</th>
-              <td><input type="radio" name="trigger" value="kannryou">完了</td>
-         </tr>
      </tbody>
   </table>
-</c:when>
-</c:choose>
-         <p><a href="${pageContext.request.contextPath}/products/index">一覧に戻る</a></p>
-        <p><a href="${pageContext.request.contextPath}/products/edit?id=${product.id}">このメッセージを編集する</a></p>
-
-</c:param>
+             <p><a href="${pageContext.request.contextPath}/products/index">一覧に戻る</a></p>
+             <p><a href="${pageContext.request.contextPath}/products/edit?id=${product.id}">このメッセージを編集する</a></p>
+         </c:when>
+      <c:otherwise>
+          <h2>お探しのデータは見つかりませんでした。</h2>
+      </c:otherwise>
+    </c:choose>
+  </c:param>
 </c:import>

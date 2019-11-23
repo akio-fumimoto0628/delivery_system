@@ -17,7 +17,7 @@
                         <c:if test="${sessionScope.login_employee.admin_flag == 1}">
                             <a href="<c:url value='/employees/index' />">従業員管理</a>&nbsp;
                         </c:if>
-                        <a href="<c:url value='/deliverys/index' />">配達管理</a>&nbsp;
+                        <a href="<c:url value='/deliverys/index' />">配達日報</a>&nbsp;
                     </c:if>
                 </div>
                 <c:if test="${sessionScope.login_employee != null}">

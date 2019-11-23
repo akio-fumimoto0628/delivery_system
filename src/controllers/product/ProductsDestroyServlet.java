@@ -48,7 +48,7 @@ public class ProductsDestroyServlet extends HttpServlet {
             request.getSession().removeAttribute("product_id");
 
             // indexページへリダイレクト
-            response.sendRedirect(request.getContextPath() + "/product/index");
+            response.sendRedirect(request.getContextPath() + "/products/index");
         }
     }
 }

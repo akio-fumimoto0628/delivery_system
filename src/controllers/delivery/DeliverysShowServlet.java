@@ -1,4 +1,4 @@
-package controllers.product;
+package controllers.delivery;
 
 import java.io.IOException;
 
@@ -10,20 +10,20 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import models.Product;
+import models.Delivery;
 import utils.DBUtil;
 
 /**
- * Servlet implementation class ProductsEdit
+ * Servlet implementation class DeliverysShowServlet
  */
-@WebServlet("/products/edit")
-public class ProductsEditServlet extends HttpServlet {
+@WebServlet("/deliverys/show")
+public class DeliverysShowServlet extends HttpServlet {
     private static final long serialVersionUID = 1L;
 
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public ProductsEditServlet() {
+    public DeliverysShowServlet() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -34,23 +34,14 @@ public class ProductsEditServlet extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         EntityManager em = DBUtil.createEntityManager();
 
-        // 該当のIDを１件のみでデータベースから取得
-        Product p = em.find(Product.class, Integer.parseInt(request.getParameter("id")));
-
+        Delivery d = em.find(Delivery.class, Integer.parseInt(request.getParameter("id")));
 
         em.close();
 
-        // 登録情報とセッションIDをリクエストスコープに登録
-        request.setAttribute("product", p);
+        request.setAttribute("delivery", d);
         request.setAttribute("_token", request.getSession().getId());
 
-        // メッセージデータが存在している時のみ
-        // メッセージIDをセッションスコープに登録
-        if(p != null) {
-            request.getSession().setAttribute("product_id", p.getId());
-        }
-
-        RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/views/products/edit.jsp");
+        RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/views/deliverys/show.jsp");
         rd.forward(request, response);
     }
 

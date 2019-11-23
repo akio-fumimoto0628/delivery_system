@@ -43,6 +43,13 @@ public class ProductsIndexServlet extends HttpServlet {
 
             request.setAttribute("products", products);
 
+            // フラッシュメッセージがセッションスコープにセットされていたら
+            // リクエストスコープに保存する（セッションスコープからは削除）
+            if(request.getSession().getAttribute("flush") != null) {
+                request.setAttribute("flush", request.getSession().getAttribute("flush"));
+                request.getSession().removeAttribute("flush");
+            }
+
             RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/views/products/index.jsp");
             rd.forward(request, response);
         }
